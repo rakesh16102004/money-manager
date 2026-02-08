@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         // Check if user is logged in
-        const token = localStorage.getItem('token');
-        const savedUser = localStorage.getItem('user');
+        const token = sessionStorage.getItem('token');
+        const savedUser = sessionStorage.getItem('user');
 
         if (token && savedUser) {
             setUser(JSON.parse(savedUser));
@@ -31,8 +31,8 @@ export const AuthProvider = ({ children }) => {
             const response = await authAPI.login({ email, password });
             const { token, ...userData } = response.data;
 
-            localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(userData));
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('user', JSON.stringify(userData));
             setUser(userData);
 
             return { success: true };
@@ -49,8 +49,8 @@ export const AuthProvider = ({ children }) => {
             const response = await authAPI.register({ name, email, password });
             const { token, ...userData } = response.data;
 
-            localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(userData));
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('user', JSON.stringify(userData));
             setUser(userData);
 
             return { success: true };
@@ -63,8 +63,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
         setUser(null);
     };
 
