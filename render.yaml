@@ -6,18 +6,18 @@ services:
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
+    plan: free # Explicitly setting free plan to avoid costs
     envVars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
-        sync: false  # You will be prompted to enter this in the Render Dashboard
+        sync: false
       - key: JWT_SECRET
-        sync: false  # You will be prompted to enter this in the Render Dashboard
+        sync: false
 
+staticSites:
   # Frontend Service
-  - type: static
-    name: money-manager-frontend
-    runtime: static
+  - name: money-manager-frontend
     rootDir: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
