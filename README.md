@@ -203,17 +203,59 @@ The app is fully responsive and works on:
 
 ## 🚀 Deployment
 
-### Backend (Render/Railway)
-1. Create new web service
-2. Connect your repository
-3. Set environment variables
-4. Deploy
+### Render Deployment (Recommended)
 
-### Frontend (Vercel/Netlify)
-1. Connect your repository
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Deploy
+This project includes comprehensive deployment guides for Render:
+
+#### 📚 Deployment Documentation
+
+1. **[Complete Deployment Guide](./RENDER_DEPLOYMENT_GUIDE.md)** - Step-by-step instructions for deploying both frontend and backend to Render
+2. **[Quick Reference](./QUICK_DEPLOY_REFERENCE.md)** - Quick reference card with essential commands and configurations
+3. **[Deployment Checklist](./DEPLOYMENT_CHECKLIST.md)** - Interactive checklist to ensure nothing is missed
+4. **[Architecture Diagram](./DEPLOYMENT_ARCHITECTURE.md)** - Visual guide showing deployment structure and data flow
+5. **[Troubleshooting Guide](./TROUBLESHOOTING.md)** - Solutions for common deployment issues
+
+#### 🎯 Quick Start Deployment
+
+**Backend (Web Service):**
+```bash
+# Configuration
+Root Directory: backend
+Build Command: npm install
+Start Command: npm start
+
+# Environment Variables
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=<generate-random-string>
+FRONTEND_URL=https://your-frontend.onrender.com
+```
+
+**Frontend (Static Site):**
+```bash
+# Configuration
+Root Directory: frontend
+Build Command: npm install && npm run build
+Publish Directory: dist
+
+# Environment Variables
+VITE_API_URL=https://your-backend.onrender.com
+```
+
+#### 📋 Deployment Steps Summary
+
+1. **Setup MongoDB Atlas** - Create free cluster and get connection string
+2. **Deploy Backend** - Create Web Service on Render with environment variables
+3. **Deploy Frontend** - Create Static Site with backend URL
+4. **Test Application** - Verify all features work in production
+
+For detailed instructions, see **[RENDER_DEPLOYMENT_GUIDE.md](./RENDER_DEPLOYMENT_GUIDE.md)**
+
+### Alternative Platforms
+
+**Backend:** Railway, Heroku, DigitalOcean  
+**Frontend:** Vercel, Netlify, Cloudflare Pages  
+**Database:** MongoDB Atlas (recommended), Render Managed MongoDB
 
 ## 📝 Environment Variables
 
