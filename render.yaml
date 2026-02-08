@@ -6,7 +6,7 @@ services:
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
-    plan: free # Explicitly setting free plan to avoid costs
+    plan: free
     envVars:
       - key: NODE_ENV
         value: production
@@ -15,9 +15,9 @@ services:
       - key: JWT_SECRET
         sync: false
 
-staticSites:
   # Frontend Service
-  - name: money-manager-frontend
+  - type: static
+    name: money-manager-frontend
     rootDir: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
